@@ -2,7 +2,7 @@
 
 This still has some rough edges. Needed to duplicate index and ...stories to prevent all assets being eaten by toplevel * route. Also placeholders are broken. Haven't implemented user page.
 
-You can find it deployed to Cloudflare Pages [here](qwikcity-hackernews.pages.dev)
+You can find it deployed to Cloudflare Pages [here](https://qwikcity-hackernews.pages.dev)
 
 - [Qwik Docs](https://qwik.builder.io/)
 - [Discord](https://qwik.builder.io/chat)
