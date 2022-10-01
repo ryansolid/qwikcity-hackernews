@@ -1,22 +1,23 @@
-import { component$, Resource, useResource$ } from '@builder.io/qwik';
-import { useLocation } from '@builder.io/qwik-city';
-import { getStories } from '../../api';
-import Story from "../../components/story/story";
-import type { IStory } from "../../types";
+import { component$, Resource, useResource$ } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
+import { getStories } from "../api";
+import Story from "../components/story/story";
+import type { IStory } from "../types";
 
-export default component$(
-  () => {
-    const location = useLocation();
-    let url = new URL(location.href);
-    let page = +(url.searchParams.get("page") || 1);
-    const type = location.params.stories || "top";
-    const resource = useResource$<IStory[]>(() => getStories(type as any, page));
-    return (
-      <Resource
-        value={resource}
-        onPending={() => <div class="news-list-nav">Loading...</div>}
-        onResolved={(stories) => {
-          return <div class="news-view">
+// temp duplicate index because top level * routes mess up serverless deploys
+export default component$(() => {
+  const location = useLocation();
+  let url = new URL(location.href);
+  let page = +(url.searchParams.get("page") || 1);
+  const type = "top";
+  const resource = useResource$<IStory[]>(() => getStories(type as any, page));
+  return (
+    <Resource
+      value={resource}
+      //onPending={() => <div class="news-list-nav">Loading...</div>}
+      onResolved={(stories) => {
+        return (
+          <div class="news-view">
             <div class="news-list-nav">
               {page > 1 ? (
                 <a
@@ -56,10 +57,8 @@ export default component$(
               )}
             </main>
           </div>
-        }}
-      />
-    );
-  }
-);
-
-
+        );
+      }}
+    />
+  );
+});
