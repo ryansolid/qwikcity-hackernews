@@ -17,7 +17,7 @@ You can find it deployed to Cloudflare Pages [here](qwikcity-hackernews.pages.de
 
 ## Project Structure
 
-Inside of you project, you'll see the following directories and files:
+Inside of your project, you'll see the following directories and files:
 
 ```
 ├── public/
