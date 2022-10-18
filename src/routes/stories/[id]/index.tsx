@@ -15,7 +15,7 @@ export default component$(
     return (
       <Resource
         value={resource}
-        //onPending={() => <div class="news-list-nav">Loading...</div>}
+        onPending={() => <div class="news-list-nav">Loading...</div>}
         onResolved={(story) => {
           return <div class="item-view">
             <div class="item-view-header">
